@@ -1,0 +1,6 @@
+dracula-theme.theme-dracula
+eamodio.gitlens
+emmanuelbeziat.vscode-great-icons
+mjmcloug.vscode-elixir
+samverschueren.final-newline
+vscodevim.vim

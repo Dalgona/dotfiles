@@ -1,0 +1,35 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/dalgona/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+if [ "$TERM" != "linux" ]; then
+  source ~/.antigen.zsh
+
+  antigen use oh-my-zsh
+  antigen bundle git
+  antigen bundle mix
+
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-autosuggestions
+
+  antigen theme ys
+
+  antigen apply
+fi
+
+# Disables ^Q and ^S
+stty -ixon
+
+export EDITOR=vim
+source /etc/locale.conf
+
+alias ls="ls --color=auto --sort=extension --group-directories-first"

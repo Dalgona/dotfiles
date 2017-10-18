@@ -1,0 +1,62 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'Yggdroot/indentLine'
+Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomasiser/vim-code-dark'
+
+call vundle#end()
+filetype plugin indent on
+
+" Colors, General Behaviors, ...
+let &t_8f="\<ESC>[38;2;%lu;%lu;%lum"
+let &t_8b="\<ESC>[48;2;%lu;%lu;%lum"
+colorscheme codedark
+syntax on
+set t_ut=
+set termguicolors
+set number
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set colorcolumn=80
+set timeoutlen=10
+set fillchars=vert:│,fold:═
+set scrolloff=5
+set cursorline
+set incsearch
+
+" Custom Key Mappings
+nnoremap j gj
+nnoremap k gk
+nnoremap <C-o> :e<Space>
+nmap <silent> <C-h> :set hlsearch!<CR>
+
+" Airline Configuration
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='codedark'
+
+" Syntastic Configuration
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+
+" use nasm syntax instead of gas
+autocmd BufRead,BufNewFile *.asm set ft=nasm ts=4 sw=4
+
+autocmd BufWritePost,FileWritePost *.tex :!xelatex *.tex
+
+" indentLine Configuration
+let g:indentLine_char = '┊'

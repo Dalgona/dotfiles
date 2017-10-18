@@ -1,0 +1,44 @@
+#!/usr/bin/bash
+
+# dotfiles installation script by Dalgona. <dalgona@hontou.moe>
+# This script comes with NO WARRANTY. Use at YOUR OWN RISK.
+
+msg_step() {
+  echo -e "\x1b[92m==>\x1b[97m $1\x1b[0m"
+}
+
+msg_err() {
+  echo -e "\x1b[91m==>\x1b[97m $1\x1b[0m"
+}
+
+msg_cmd() {
+  echo -e "\x1b[94m ->\x1b[0m $1"
+}
+
+msg_step "Creating symbolic links..."
+for file in $(pwd)/home/*
+do
+  cmd="ln --backup -sfn $file $HOME/.$(basename $file)"
+  msg_cmd "$cmd"
+  $cmd
+done
+
+msg_step "Installing Vim plugins using Vundle..."
+msg_cmd "vim -c \":PluginInstall\""
+vim -c ":PluginInstall"
+
+if command -v code > /dev/null
+then
+  msg_step "Installing Visual Studio Code extensions..."
+  for ext in $(cat vscode-extensions.txt)
+  do
+    cmd="code --install-extension $ext"
+    msg_cmd "$cmd"
+    $cmd
+  done
+else
+  msg_err "Visual Studio Code is required to install extensions."
+fi
+
+echo
+echo -e "\x1b[1mDone! Enjoy your new system!\x1b[0m"
