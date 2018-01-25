@@ -8,7 +8,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'Yggdroot/indentLine'
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/nerdtree'
@@ -20,7 +19,7 @@ filetype plugin indent on
 " Colors, General Behaviors, ...
 let &t_8f="\<ESC>[38;2;%lu;%lu;%lum"
 let &t_8b="\<ESC>[48;2;%lu;%lu;%lum"
-colorscheme codedark
+colorscheme molokai
 syntax on
 set t_ut=
 set termguicolors
