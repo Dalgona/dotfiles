@@ -19,10 +19,10 @@ filetype plugin indent on
 " Colors, General Behaviors, ...
 let &t_8f="\<ESC>[38;2;%lu;%lu;%lum"
 let &t_8b="\<ESC>[48;2;%lu;%lu;%lum"
+let g:rehash256=1
 colorscheme molokai
 syntax on
 set t_ut=
-set termguicolors
 set number
 set smartindent
 set tabstop=2

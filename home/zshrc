@@ -31,6 +31,5 @@ stty -ixon
 
 export EDITOR=vim
 export GPG_TTY=$(tty)
-source /etc/locale.conf
 
 alias ls="ls --color=auto --sort=extension --group-directories-first"
