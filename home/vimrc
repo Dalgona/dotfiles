@@ -8,8 +8,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
+"Plugin 'edkolev/promptline.vim'
+"Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
 
@@ -19,7 +19,7 @@ filetype plugin indent on
 " Colors, General Behaviors, ...
 let &t_8f="\<ESC>[38;2;%lu;%lu;%lum"
 let &t_8b="\<ESC>[48;2;%lu;%lu;%lum"
-let g:rehash256=1
+set termguicolors
 colorscheme molokai
 syntax on
 set t_ut=
@@ -54,8 +54,6 @@ let g:syntastic_python_python_exec = '/usr/bin/python3'
 
 " use nasm syntax instead of gas
 autocmd BufRead,BufNewFile *.asm set ft=nasm ts=4 sw=4
-
-autocmd BufWritePost,FileWritePost *.tex :!xelatex *.tex
 
 " indentLine Configuration
 let g:indentLine_char = '┊'
