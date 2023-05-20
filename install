@@ -24,8 +24,8 @@ do
 done
 
 msg_step "Installing Vim plugins using Vundle..."
-msg_cmd "vim -c \":PluginInstall\""
-vim -c ":PluginInstall"
+msg_cmd "vim -c \":PlugInstall\""
+vim -c ":PlugInstall"
 
 if command -v code > /dev/null
 then
